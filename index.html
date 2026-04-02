@@ -18,13 +18,14 @@
       --accent: #6ea8fe;
       --accent-2: #8b5cf6;
       --border: rgba(255,255,255,0.12);
-      --success: #22c55e;
       --shadow: 0 20px 50px rgba(0,0,0,0.35);
       --radius: 22px;
       --max: 1150px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html, body {
       margin: 0;
@@ -38,8 +39,14 @@
       line-height: 1.6;
     }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
 
     .container {
       width: min(var(--max), calc(100% - 32px));
@@ -47,7 +54,7 @@
     }
 
     .topbar {
-      padding: 18px 0 8px;
+      padding: 20px 0 10px;
     }
 
     .brand {
@@ -56,30 +63,43 @@
       gap: 14px;
     }
 
-    .brand img {
-      width: 64px;
-      height: 64px;
+    .logo-wrap {
+      width: 96px;
+      height: 96px;
+      min-width: 96px;
+      min-height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,0.12);
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.20);
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
       object-fit: contain;
-      background: rgba(255,255,255,0.04);
-      border-radius: 14px;
-      padding: 6px;
-      border: 1px solid var(--border);
+      display: block;
     }
 
     .brand-text h2 {
       margin: 0;
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       line-height: 1.1;
     }
 
     .brand-text p {
-      margin: 4px 0 0;
+      margin: 6px 0 0;
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.95rem;
     }
 
     .hero {
-      padding: 32px 0 28px;
+      padding: 28px 0 28px;
     }
 
     .hero-grid {
@@ -116,11 +136,25 @@
       margin-bottom: 16px;
     }
 
-    .hero-logo {
-      width: 92px;
-      max-width: 100%;
+    .hero-logo-wrap {
+      width: 140px;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 14px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.20);
+    }
+
+    .hero-logo-wrap img {
+      width: 100%;
+      height: 100%;
       object-fit: contain;
-      margin-bottom: 16px;
       display: block;
     }
 
@@ -149,7 +183,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 46px;
+      min-height: 48px;
       padding: 0 18px;
       border-radius: 14px;
       font-weight: 700;
@@ -161,7 +195,6 @@
 
     .btn:hover {
       transform: translateY(-1px);
-      text-decoration: none;
       opacity: 0.96;
     }
 
@@ -178,8 +211,7 @@
 
     .info-card {
       padding: 28px;
-      background:
-        linear-gradient(180deg, rgba(24,33,66,0.95), rgba(18,25,51,0.95));
+      background: linear-gradient(180deg, rgba(24,33,66,0.95), rgba(18,25,51,0.95));
     }
 
     .info-card h3 {
@@ -235,20 +267,20 @@
       margin-top: 18px;
       padding: 22px;
       border-radius: 20px;
-      border: 1px solid rgba(34,197,94,0.25);
-      background: rgba(34,197,94,0.07);
+      border: 1px solid rgba(110,168,254,0.20);
+      background: rgba(110,168,254,0.08);
     }
 
     .instruction-box h4 {
       margin: 0 0 10px;
       font-size: 1.02rem;
-      color: #dcfce7;
+      color: #e0e7ff;
     }
 
     .instruction-box ul {
       margin: 0;
       padding-left: 18px;
-      color: #d1fae5;
+      color: #dbeafe;
     }
 
     .instruction-box li {
@@ -314,6 +346,18 @@
       .brand {
         align-items: flex-start;
       }
+
+      .logo-wrap {
+        width: 84px;
+        height: 84px;
+        min-width: 84px;
+        min-height: 84px;
+      }
+
+      .hero-logo-wrap {
+        width: 120px;
+        height: 120px;
+      }
     }
   </style>
 </head>
@@ -321,10 +365,12 @@
   <div class="container">
     <section class="topbar">
       <div class="brand">
-        <img
-          src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/dds-logo-removebg-preview.png"
-          alt="DDS Logo"
-        />
+        <div class="logo-wrap">
+          <img
+            src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/dds-logo-removebg-preview.png"
+            alt="DDS Logo"
+          />
+        </div>
         <div class="brand-text">
           <h2>DDS Challenge Assistant</h2>
           <p>Your AI support bot for the DDS challenge journey</p>
@@ -337,11 +383,12 @@
         <div class="panel hero-card">
           <div class="badge">Decoding Data Science</div>
 
-          <img
-            class="hero-logo"
-            src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/dds-logo-removebg-preview.png"
-            alt="DDS Logo"
-          />
+          <div class="hero-logo-wrap">
+            <img
+              src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/dds-logo-removebg-preview.png"
+              alt="DDS Logo"
+            />
+          </div>
 
           <h1>DDS Challenge Assistant</h1>
           <p class="subtext">
@@ -351,7 +398,14 @@
 
           <div class="cta-row">
             <a href="#how-to-use" class="btn btn-primary">How to use this bot</a>
-            <a href="https://nas.io/artificialintelligence/digital-files/jkem" target="_blank" class="btn btn-secondary">Challenge Documents</a>
+            <a
+              href="https://nas.io/artificialintelligence/digital-files/jkem"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-secondary"
+            >
+              Challenge Documents
+            </a>
           </div>
 
           <div class="instruction-box">
@@ -367,7 +421,12 @@
 
           <div class="resource-box">
             <p><strong>Need the official challenge materials?</strong></p>
-            <a href="https://nas.io/artificialintelligence/digital-files/jkem" target="_blank" class="btn btn-primary">
+            <a
+              href="https://nas.io/artificialintelligence/digital-files/jkem"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+            >
               Open Challenge Documents
             </a>
           </div>
@@ -385,7 +444,7 @@
           </ul>
 
           <p class="note">
-            Tip: Ask one focused question at a time for the most useful answer.
+            Tip: ask one focused question at a time for the most useful answer.
           </p>
         </aside>
       </div>
@@ -433,7 +492,7 @@
       <div class="panel card" style="padding: 24px;">
         <h2 class="section-title" style="margin-top: 0;">Start chatting with the assistant</h2>
         <p style="margin: 0; color: var(--muted);">
-          Use the chat widget on the page to ask questions about checkpoints, tools, project ideas, prompts, debugging, and final submission support.
+          Use the chat widget to ask questions about checkpoints, tools, project ideas, prompts, debugging, and final submission support.
         </p>
       </div>
     </section>
@@ -456,7 +515,7 @@
       imagePath: "https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/dds-logo-removebg-preview.png",
       imageSize: "small",
       imageBgColor: "#FFFFFF",
-      autoOpen: false
+      autoOpen: true
     });
   </script>
 </body>
