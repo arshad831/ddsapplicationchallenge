@@ -526,6 +526,21 @@
       color: var(--muted);
     }
 
+    .chatbot-reminder {
+      text-align: center;
+    }
+
+    .chatbot-reminder img {
+      width: 110px;
+      height: 110px;
+      object-fit: contain;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 12px;
+      margin-bottom: 14px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.20);
+    }
+
     .footer {
       padding: 8px 0 40px;
       color: var(--muted);
@@ -580,6 +595,11 @@
       .hero-logo-wrap {
         width: 112px;
         height: 112px;
+      }
+
+      .chatbot-reminder img {
+        width: 90px;
+        height: 90px;
       }
     }
   </style>
@@ -1011,9 +1031,22 @@
       <div class="panel card" style="padding: 24px;">
         <h2 class="section-title" style="margin-top: 0;">Open the AI Application Challenge Assistant</h2>
         <p style="margin: 0 0 14px; color: var(--muted);">
-          Click the chatbot icon at the bottom right to start asking questions about ideas, tools, prompts, roadmaps, prizes, and deployment.
+          Click the DDS logo chatbot icon at the bottom right to start asking questions about ideas, tools, prompts, roadmaps, prizes, and deployment.
         </p>
-        <a href="#root" class="btn btn-primary">Go to Chatbot Area</a>
+        <a href="#root" class="btn btn-primary">Open Chatbot</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="panel card chatbot-reminder" style="padding: 24px;">
+        <img
+          src="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/dds-logo-removebg-preview.png"
+          alt="DDS Chatbot Icon"
+        />
+        <h2 class="section-title" style="margin-top: 0;">See the chatbot icon at the bottom right</h2>
+        <p style="margin: 0; color: var(--muted);">
+          The chatbot launcher now uses the DDS logo and is made larger so people can spot it more easily.
+        </p>
       </div>
     </section>
 
@@ -1033,7 +1066,7 @@
       apiUrl: "https://embed-api.airia.ai",
       greeting: "Welcome to the AI Application Challenge Assistant. Ask me about checkpoints, project ideas, no-code tools, prompts, prizes, or deployment.",
       imagePath: "https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/dds-logo-removebg-preview.png",
-      imageSize: "small",
+      imageSize: "large",
       imageBgColor: "#FFFFFF",
       autoOpen: true
     });
