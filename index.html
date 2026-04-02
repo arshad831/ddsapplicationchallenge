@@ -3,11 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DDS Challenge Assistant</title>
+  <title>DDS AI Builder FAQ Bot</title>
+
   <meta
     name="description"
-    content="DDS Challenge Assistant for challenge participants. Get help with checkpoints, tools, submissions, and project guidance."
+    content="DDS AI Builder FAQ Bot for challenge participants. Get help with checkpoints, project ideas, no-code tools, prompts, debugging, roadmaps, prizes, and cloud deployment steps."
   />
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/dds-logo-removebg-preview.png"
+  />
+  <link
+    rel="shortcut icon"
+    type="image/png"
+    href="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/dds-logo-removebg-preview.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/dds-logo-removebg-preview.png"
+  />
+
   <style>
     :root {
       --bg: #0b1020;
@@ -17,10 +34,13 @@
       --muted: #b8c1e0;
       --accent: #6ea8fe;
       --accent-2: #8b5cf6;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --danger: #fb7185;
       --border: rgba(255,255,255,0.12);
       --shadow: 0 20px 50px rgba(0,0,0,0.35);
       --radius: 22px;
-      --max: 1150px;
+      --max: 1180px;
     }
 
     * {
@@ -37,14 +57,11 @@
         linear-gradient(180deg, #09101f 0%, #0b1020 100%);
       color: var(--text);
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
     a {
       color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
       text-decoration: none;
     }
 
@@ -64,10 +81,10 @@
     }
 
     .logo-wrap {
-      width: 96px;
-      height: 96px;
-      min-width: 96px;
-      min-height: 96px;
+      width: 88px;
+      height: 88px;
+      min-width: 88px;
+      min-height: 88px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -88,7 +105,7 @@
 
     .brand-text h2 {
       margin: 0;
-      font-size: 1.2rem;
+      font-size: 1.18rem;
       line-height: 1.1;
     }
 
@@ -98,13 +115,18 @@
       font-size: 0.95rem;
     }
 
+    .open-chat-link {
+      margin-top: 10px;
+      display: inline-flex;
+    }
+
     .hero {
-      padding: 28px 0 28px;
+      padding: 28px 0 26px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.25fr 0.75fr;
       gap: 24px;
       align-items: stretch;
     }
@@ -131,14 +153,14 @@
       background: rgba(110,168,254,0.10);
       color: #dbeafe;
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.2px;
       margin-bottom: 16px;
     }
 
     .hero-logo-wrap {
-      width: 140px;
-      height: 140px;
+      width: 132px;
+      height: 132px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -160,15 +182,15 @@
 
     h1 {
       margin: 0 0 12px;
-      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-size: clamp(2rem, 4vw, 3.3rem);
       line-height: 1.05;
       letter-spacing: -0.03em;
     }
 
     .subtext {
-      font-size: 1.05rem;
+      font-size: 1.04rem;
       color: var(--muted);
-      max-width: 760px;
+      max-width: 780px;
       margin-bottom: 22px;
     }
 
@@ -230,7 +252,7 @@
     }
 
     .section {
-      padding: 16px 0 52px;
+      padding: 12px 0 48px;
     }
 
     .section-title {
@@ -239,9 +261,27 @@
       letter-spacing: -0.02em;
     }
 
+    .section-subtext {
+      color: var(--muted);
+      margin: 0 0 22px;
+      max-width: 850px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 18px;
     }
 
@@ -287,8 +327,87 @@
       margin-bottom: 8px;
     }
 
+    .resource-box {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(139,92,246,0.08);
+      border: 1px solid rgba(139,92,246,0.24);
+    }
+
+    .resource-box p {
+      margin: 0 0 10px;
+      color: #e9ddff;
+    }
+
+    .support-box {
+      margin-top: 16px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(34,197,94,0.08);
+      border: 1px solid rgba(34,197,94,0.22);
+    }
+
+    .support-box p {
+      margin: 0 0 10px;
+      color: #dcfce7;
+    }
+
+    .countdown-box {
+      margin-top: 18px;
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(251,113,133,0.08);
+      border: 1px solid rgba(251,113,133,0.22);
+    }
+
+    .countdown-box h4 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      color: #ffe4e6;
+    }
+
+    .countdown-box p {
+      margin: 0 0 14px;
+      color: #fecdd3;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .countdown-item {
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      text-align: center;
+    }
+
+    .countdown-number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 6px;
+      color: #ffffff;
+    }
+
+    .countdown-label {
+      font-size: 0.82rem;
+      color: #fecdd3;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .prize-card {
+      background: linear-gradient(180deg, rgba(245,158,11,0.10), rgba(255,255,255,0.03));
+      border: 1px solid rgba(245,158,11,0.24);
+    }
+
     .examples {
-      margin-top: 20px;
+      margin-top: 18px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
@@ -303,17 +422,108 @@
       font-size: 0.92rem;
     }
 
-    .resource-box {
-      margin-top: 16px;
-      padding: 18px;
-      border-radius: 18px;
-      background: rgba(110,168,254,0.08);
-      border: 1px solid rgba(110,168,254,0.22);
+    .step-card {
+      position: relative;
+      padding-top: 56px;
     }
 
-    .resource-box p {
+    .step-number {
+      position: absolute;
+      top: 18px;
+      left: 20px;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      padding: 20px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .faq-item h4 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+
+    .faq-item p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .path-card {
+      padding: 22px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    }
+
+    .path-card h4 {
       margin: 0 0 10px;
+      font-size: 1.05rem;
+    }
+
+    .path-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .path-card li {
+      margin-bottom: 8px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .timeline-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(110,168,254,0.12);
+      border: 1px solid rgba(110,168,254,0.24);
       color: #dbeafe;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .timeline-item h4 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: var(--muted);
     }
 
     .footer {
@@ -328,9 +538,22 @@
       color: #cbd5e1;
     }
 
+    @media (max-width: 1000px) {
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 900px) {
       .hero-grid,
-      .grid-3 {
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .countdown-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
         grid-template-columns: 1fr;
       }
 
@@ -348,15 +571,15 @@
       }
 
       .logo-wrap {
-        width: 84px;
-        height: 84px;
-        min-width: 84px;
-        min-height: 84px;
+        width: 78px;
+        height: 78px;
+        min-width: 78px;
+        min-height: 78px;
       }
 
       .hero-logo-wrap {
-        width: 120px;
-        height: 120px;
+        width: 112px;
+        height: 112px;
       }
     }
   </style>
@@ -372,8 +595,11 @@
           />
         </div>
         <div class="brand-text">
-          <h2>DDS Challenge Assistant</h2>
-          <p>Your AI support bot for the DDS challenge journey</p>
+          <h2>DDS AI Builder FAQ Bot</h2>
+          <p>Your support bot for building and deploying AI applications</p>
+          <div class="open-chat-link">
+            <a href="#open-chatbot" class="btn btn-primary">Open Chatbot</a>
+          </div>
         </div>
       </div>
     </section>
@@ -390,115 +616,389 @@
             />
           </div>
 
-          <h1>DDS Challenge Assistant</h1>
+          <h1>AI Builder FAQ Bot</h1>
           <p class="subtext">
-            Get support with challenge checkpoints, project ideas, prompt writing, debugging,
-            tool selection, and submission preparation — all in one place.
+            Ask practical questions about building an AI application — from idea selection and tool choice
+            to prompt design, no-code workflows, roadmap planning, and cloud deployment.
           </p>
 
           <div class="cta-row">
             <a href="#how-to-use" class="btn btn-primary">How to use this bot</a>
-            <a
-              href="https://nas.io/artificialintelligence/digital-files/tqnq"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-secondary"
-            >
-              AI Builder's Vault
-            </a>
+            <a href="#roadmap" class="btn btn-secondary">See roadmap</a>
+            <a href="#prizes" class="btn btn-secondary">See prizes</a>
           </div>
 
           <div class="instruction-box">
-            <h4>How to get the best help from this bot</h4>
+            <h4>How to get better answers from this bot</h4>
             <ul>
-              <li>Mention your checkpoint number or current task.</li>
-              <li>Explain what you are building and who it is for.</li>
-              <li>Share your coding path or no-code tool if relevant.</li>
-              <li>Paste your error, draft prompt, or submission text for better guidance.</li>
-              <li>Ask for step-by-step help if you feel stuck.</li>
+              <li>Describe what you want to build and who it is for.</li>
+              <li>Mention whether you want a coding, no-code, or low-code path.</li>
+              <li>Share your current problem, draft prompt, or tool confusion.</li>
+              <li>Paste your error if something is not working.</li>
+              <li>Ask for a step-by-step plan if you want help from idea to deployment.</li>
             </ul>
           </div>
 
           <div class="resource-box">
-            <p><strong>Need the official challenge materials?</strong></p>
+            <p><strong>Mini support materials for getting started</strong></p>
+            <p>
+              These starter materials can help you understand the basics, checkpoints, and first steps.
+            </p>
             <a
               href="https://nas.io/artificialintelligence/digital-files/jkem"
               target="_blank"
               rel="noopener noreferrer"
               class="btn btn-primary"
             >
-              Open Challenge Documents
+              Open Getting Started Materials
             </a>
+          </div>
+
+          <div class="support-box">
+            <p><strong>Optional AI Builder Bot support material</strong></p>
+            <p>
+              Want extra guidance, examples, and structured support? You can explore the optional support material.
+            </p>
+            <a
+              href="https://nas.io/artificialintelligence/digital-files/tqnq"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-secondary"
+            >
+              Explore Optional Support Material
+            </a>
+          </div>
+
+          <div class="countdown-box">
+            <h4>Challenge starts soon</h4>
+            <p>Countdown to Day 1 — April 18, 9:00 AM GST (Dubai Time)</p>
+            <div class="countdown-grid">
+              <div class="countdown-item">
+                <div class="countdown-number" id="days">00</div>
+                <div class="countdown-label">Days</div>
+              </div>
+              <div class="countdown-item">
+                <div class="countdown-number" id="hours">00</div>
+                <div class="countdown-label">Hours</div>
+              </div>
+              <div class="countdown-item">
+                <div class="countdown-number" id="minutes">00</div>
+                <div class="countdown-label">Minutes</div>
+              </div>
+              <div class="countdown-item">
+                <div class="countdown-number" id="seconds">00</div>
+                <div class="countdown-label">Seconds</div>
+              </div>
+            </div>
           </div>
         </div>
 
         <aside class="panel info-card">
-          <h3>What this assistant can help you with</h3>
+          <h3>What this bot can help you with</h3>
           <ul class="mini-list">
-            <li>Choosing a practical and strong challenge idea</li>
-            <li>Understanding what each checkpoint requires</li>
-            <li>Selecting the right tool or workflow</li>
-            <li>Improving prompts and chatbot instructions</li>
-            <li>Debugging technical issues</li>
-            <li>Making your final submission cleaner and stronger</li>
+            <li>Choose an AI app idea that is realistic and useful</li>
+            <li>Understand the path from idea to working prototype</li>
+            <li>Compare no-code, low-code, and coding approaches</li>
+            <li>Improve system prompts and chatbot instructions</li>
+            <li>Understand what tools to use and when</li>
+            <li>Plan deployment to cloud platforms</li>
+            <li>Review your flow before final submission</li>
           </ul>
 
           <p class="note">
-            Tip: ask one focused question at a time for the most useful answer.
+            Best tip: ask focused, practical questions such as “Which no-code tool should I use for an FAQ bot?” or
+            “Give me a cloud deployment roadmap for my AI assistant.”
           </p>
         </aside>
       </div>
     </section>
 
-    <section class="section" id="how-to-use">
-      <h2 class="section-title">How participants should use this AI bot</h2>
+    <section class="section" id="prizes">
+      <h2 class="section-title">Prizes and benefits</h2>
+      <p class="section-subtext">
+        Build, submit, and stand out. Strong projects can get recognition, visibility, and valuable rewards.
+      </p>
+
       <div class="grid-3">
-        <div class="card">
-          <h4>1. Start with your goal</h4>
+        <div class="card prize-card">
+          <h4>Scholarship Prizes</h4>
           <p>
-            Tell the assistant what you are building, what checkpoint you are on, and what outcome you want.
+            Win scholarship opportunities and rewards connected to the DDS ecosystem and advanced learning programs.
           </p>
         </div>
-        <div class="card">
-          <h4>2. Share your challenge</h4>
+        <div class="card prize-card">
+          <h4>Credits, Licenses, and Swag</h4>
           <p>
-            Mention what is confusing, what is not working, or what type of help you need.
+            Top participants may receive partner benefits such as credits, licenses, swags, and other practical rewards.
           </p>
         </div>
-        <div class="card">
-          <h4>3. Ask for action</h4>
+        <div class="card prize-card">
+          <h4>Visibility and Opportunities</h4>
           <p>
-            Ask for a review, better prompt, code help, tool recommendation, or a step-by-step plan.
+            Great projects can gain exposure, community recognition, portfolio value, and stronger chances for internships or collaborations.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how-to-use">
+      <h2 class="section-title">How to use this FAQ bot</h2>
+      <p class="section-subtext">
+        This bot is designed to help beginners and builders move from confusion to clarity. You can use it for simple questions,
+        structured roadmaps, debugging help, tool comparisons, or build guidance.
+      </p>
+
+      <div class="grid-3">
+        <div class="card step-card">
+          <div class="step-number">1</div>
+          <h4>Start with the idea</h4>
+          <p>
+            Tell the bot the type of AI application you want to build and the problem it solves.
+          </p>
+        </div>
+
+        <div class="card step-card">
+          <div class="step-number">2</div>
+          <h4>Choose your path</h4>
+          <p>
+            Say whether you prefer no-code, low-code, or coding so the guidance matches your level.
+          </p>
+        </div>
+
+        <div class="card step-card">
+          <div class="step-number">3</div>
+          <h4>Ask for the next step</h4>
+          <p>
+            Request prompts, tools, workflows, architecture, deployment help, or a complete roadmap.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <h2 class="section-title">Popular questions this bot can answer</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h4>Which no-code tool should I use to build my AI chatbot?</h4>
+          <p>The bot can recommend tools based on your use case, skill level, and deployment goal.</p>
+        </div>
+
+        <div class="faq-item">
+          <h4>How do I turn my idea into a roadmap?</h4>
+          <p>The bot can break your idea into planning, building, testing, and deployment steps.</p>
+        </div>
+
+        <div class="faq-item">
+          <h4>How do I deploy my AI app in the cloud?</h4>
+          <p>The bot can guide you through lightweight deployment options such as Hugging Face Spaces, Streamlit Cloud, Render, or other cloud paths.</p>
+        </div>
+
+        <div class="faq-item">
+          <h4>Can you help me improve my prompt or chatbot instructions?</h4>
+          <p>Yes. Paste your draft and ask the bot to rewrite it for clarity, behavior, and better output quality.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="roadmap">
+      <h2 class="section-title">Roadmap to build an AI application</h2>
+      <p class="section-subtext">
+        A simple end-to-end roadmap from concept to deployment.
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div><span class="timeline-tag">Step 1</span></div>
+          <div>
+            <h4>Define the use case</h4>
+            <p>
+              Identify the user, the problem, the input data, and the expected output. Keep it narrow and practical.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div><span class="timeline-tag">Step 2</span></div>
+          <div>
+            <h4>Choose the build approach</h4>
+            <p>
+              Decide whether you want a no-code, low-code, or coding path depending on your skill level and speed.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div><span class="timeline-tag">Step 3</span></div>
+          <div>
+            <h4>Select tools and model flow</h4>
+            <p>
+              Choose your interface, automation tool, model provider, data source, and storage if needed.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div><span class="timeline-tag">Step 4</span></div>
+          <div>
+            <h4>Build a working prototype</h4>
+            <p>
+              Start with a small version that solves one clear problem well before adding more features.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div><span class="timeline-tag">Step 5</span></div>
+          <div>
+            <h4>Test and improve</h4>
+            <p>
+              Try real user questions, check responses, fix prompt issues, and make the flow more reliable.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div><span class="timeline-tag">Step 6</span></div>
+          <div>
+            <h4>Deploy in the cloud</h4>
+            <p>
+              Publish the app so others can test it. Start with simple hosting, then improve usability and monitoring.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="paths">
+      <h2 class="section-title">Ways to build your AI application</h2>
+      <p class="section-subtext">
+        Pick the path that matches your current level and the speed at which you want to build.
+      </p>
+
+      <div class="grid-3">
+        <div class="path-card">
+          <h4>No-Code Path</h4>
+          <ul>
+            <li>Best for beginners and fast prototyping</li>
+            <li>Use visual tools and workflow builders</li>
+            <li>Good for FAQ bots, simple assistants, lead capture, and automation</li>
+          </ul>
+        </div>
+
+        <div class="path-card">
+          <h4>Low-Code Path</h4>
+          <ul>
+            <li>Best when you want flexibility without full software development</li>
+            <li>Combine visual tools with light APIs or small scripts</li>
+            <li>Good for AI agents, integrations, and custom workflows</li>
+          </ul>
+        </div>
+
+        <div class="path-card">
+          <h4>Coding Path</h4>
+          <ul>
+            <li>Best for full control, customization, and scale</li>
+            <li>Use Python, APIs, vector databases, and front-end apps</li>
+            <li>Good for serious portfolio projects and production-ready systems</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tools">
+      <h2 class="section-title">Examples of no-code and low-code tools</h2>
+      <p class="section-subtext">
+        These are examples of tools participants may explore depending on their project type.
+      </p>
+
+      <div class="grid-4">
+        <div class="card">
+          <h4>n8n</h4>
+          <p>Great for workflow automation, connecting APIs, and building AI-powered flows with little code.</p>
+        </div>
+        <div class="card">
+          <h4>Voiceflow</h4>
+          <p>Useful for conversational experiences, chatbot design, and guided assistant flows.</p>
+        </div>
+        <div class="card">
+          <h4>Bubble</h4>
+          <p>Good for building product interfaces and full no-code web applications.</p>
+        </div>
+        <div class="card">
+          <h4>Make</h4>
+          <p>Helpful for connecting apps, automating tasks, and linking AI actions with business workflows.</p>
+        </div>
+        <div class="card">
+          <h4>Zapier</h4>
+          <p>A simple way to automate common tasks and trigger AI actions across tools.</p>
+        </div>
+        <div class="card">
+          <h4>Replit / Streamlit</h4>
+          <p>Useful for lightweight AI demos and simple app interfaces when you want a low-code path.</p>
+        </div>
+        <div class="card">
+          <h4>Gradio</h4>
+          <p>Excellent for quickly turning an AI workflow into a shareable app interface.</p>
+        </div>
+        <div class="card">
+          <h4>Hugging Face Spaces</h4>
+          <p>A beginner-friendly cloud option to deploy demos and AI prototypes publicly.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cloud">
+      <h2 class="section-title">General path to deploy in the cloud</h2>
+      <p class="section-subtext">
+        A simple deployment path for a chatbot, assistant, or AI workflow.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4>Basic deployment path</h4>
+          <p>
+            Define the app → connect the model or workflow → create a simple interface →
+            test with real prompts → deploy to a beginner-friendly cloud platform →
+            share the link and collect feedback.
+          </p>
+        </div>
+
+        <div class="card">
+          <h4>What to check before deployment</h4>
+          <p>
+            Prompt quality, response time, error handling, user experience, mobile friendliness,
+            and whether the app clearly solves one real problem.
           </p>
         </div>
       </div>
     </section>
 
     <section class="section" id="example-prompts">
-      <h2 class="section-title">Example questions to ask</h2>
+      <h2 class="section-title">Example questions to ask this bot</h2>
       <div class="examples">
-        <span class="chip">Help me choose a beginner-friendly AI app idea.</span>
-        <span class="chip">What should I submit for this checkpoint?</span>
-        <span class="chip">Can you improve my chatbot system prompt?</span>
-        <span class="chip">Which no-code tool should I use for my use case?</span>
-        <span class="chip">Can you help me debug this Python error?</span>
-        <span class="chip">Review my project idea and tell me what to improve.</span>
-        <span class="chip">How do I make my submission more portfolio-ready?</span>
-        <span class="chip">Give me a step-by-step plan to finish this challenge.</span>
+        <span class="chip">Help me choose a beginner-friendly AI application idea.</span>
+        <span class="chip">Which no-code tool fits my chatbot use case?</span>
+        <span class="chip">Give me a roadmap to build and deploy an AI FAQ bot.</span>
+        <span class="chip">Can you improve my system prompt?</span>
+        <span class="chip">How do I deploy my AI app to Hugging Face Spaces?</span>
+        <span class="chip">What is the best low-code path for a WhatsApp AI assistant?</span>
+        <span class="chip">Review my AI project idea and make it more practical.</span>
+        <span class="chip">What are the steps to turn my prototype into a portfolio-ready project?</span>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="open-chatbot">
       <div class="panel card" style="padding: 24px;">
-        <h2 class="section-title" style="margin-top: 0;">Start chatting with the assistant</h2>
-        <p style="margin: 0; color: var(--muted);">
-          Use the chat widget to ask questions about checkpoints, tools, project ideas, prompts, debugging, and final submission support.
+        <h2 class="section-title" style="margin-top: 0;">Open the AI Builder FAQ Bot</h2>
+        <p style="margin: 0 0 14px; color: var(--muted);">
+          Click the chatbot icon at the bottom right to start asking questions about ideas, tools, prompts, roadmaps, prizes, and deployment.
         </p>
+        <a href="#root" class="btn btn-primary">Go to Chatbot Area</a>
       </div>
     </section>
 
     <footer class="footer">
-      Built for Decoding Data Science challenge participants.
+      Built for Decoding Data Science learners and builders.
     </footer>
   </div>
 
@@ -511,12 +1011,40 @@
       pipelineId: "9a8479b4-9a8f-4ff3-9efa-ca6e92c4b622",
       apiKey: "ak-Mzg1NzM3MDM0M3wxNzc1MTIxMDMwMzU0fHRpLVJHVmpiMlJwYm1jZ1JHRjBZU0JUWTJsbGJtTmxJQzBnUTBWUExVOXdaVzRnVW1WbmFYTjBjbUYwYVc5dUxWQnliMlpsYzNOcGIyNWhiQT09fDF8MjkyODI0NzY2MyAg",
       apiUrl: "https://embed-api.airia.ai",
-      greeting: "Welcome to the DDS Challenge Assistant. Ask me about checkpoints, project ideas, tools, prompts, debugging, or submissions.",
+      greeting: "Welcome to the DDS AI Builder FAQ Bot. Ask me about AI app ideas, no-code tools, prompts, roadmaps, prizes, or deployment.",
       imagePath: "https://raw.githubusercontent.com/Decoding-Data-Science/airesidency/main/dds-logo-removebg-preview.png",
       imageSize: "small",
       imageBgColor: "#FFFFFF",
       autoOpen: true
     });
+
+    const targetDate = new Date("2026-04-18T09:00:00+04:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      document.getElementById("days").textContent = String(days).padStart(2, "0");
+      document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+      document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+      document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
   </script>
 </body>
 </html>
