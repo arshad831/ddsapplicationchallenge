@@ -587,6 +587,102 @@
       appearance: none;
     }
 
+    /* Product/support kit cards: keeps the same page colors while making the resources visual and professional. */
+    .product-highlight-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .product-highlight-card {
+      overflow: hidden;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.13);
+      background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.025));
+      box-shadow: 0 16px 36px rgba(0,0,0,0.18);
+    }
+
+    .product-highlight-card-main {
+      border-color: rgba(34,197,94,0.28);
+      background: linear-gradient(180deg, rgba(34,197,94,0.10), rgba(255,255,255,0.025));
+    }
+
+    .product-highlight-card-secondary {
+      border-color: rgba(139,92,246,0.26);
+      background: linear-gradient(180deg, rgba(139,92,246,0.10), rgba(255,255,255,0.025));
+    }
+
+    .product-image-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .product-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-copy {
+      padding: 18px;
+    }
+
+    .product-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 9px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #e0e7ff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .product-copy h3 {
+      margin: 0 0 8px;
+      color: #f8fafc;
+      font-size: 1.12rem;
+      line-height: 1.2;
+    }
+
+    .product-copy p {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .product-bonus-note {
+      color: #dcfce7 !important;
+      font-weight: 800;
+    }
+
+    .product-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .welcome-note-box {
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(110,168,254,0.22);
+      background: rgba(110,168,254,0.08);
+      color: #dbeafe;
+    }
+
     /* Starter question panel: keeps the same visual language as the page. */
     .assistant-start-panel {
       padding: 24px;
@@ -634,19 +730,23 @@
       font-size: 0.93rem;
     }
 
-    /* Larger, cleaner chat workspace when Airia opens. This targets only the actual rendered widget shell. */
+    /* Dynamic, resizable chat workspace when Airia opens. This avoids a locked full-screen feel on desktop. */
     .airia-chat-expanded {
-      width: min(960px, calc(100vw - 32px)) !important;
-      height: min(760px, calc(100vh - 32px)) !important;
+      width: clamp(380px, 54vw, 820px) !important;
+      height: clamp(520px, 72vh, 700px) !important;
+      min-width: 360px !important;
+      min-height: 480px !important;
       max-width: calc(100vw - 32px) !important;
       max-height: calc(100vh - 32px) !important;
       border-radius: 18px !important;
+      resize: both !important;
+      overflow: auto !important;
     }
 
     /* Three-to-four-line typing area for longer prompts, errors, and project ideas. */
     .airia-readable-fix textarea,
     .airia-readable-fix [contenteditable="true"] {
-      min-height: 88px !important;
+      min-height: 108px !important;
       max-height: 190px !important;
       line-height: 1.5 !important;
       white-space: pre-wrap !important;
@@ -673,17 +773,20 @@
       }
 
       .airia-chat-expanded {
-        width: calc(100vw - 12px) !important;
-        height: calc(100vh - 12px) !important;
-        max-width: calc(100vw - 12px) !important;
-        max-height: calc(100vh - 12px) !important;
+        width: calc(100vw - 20px) !important;
+        height: min(74vh, 640px) !important;
+        min-width: 0 !important;
+        min-height: 430px !important;
+        max-width: calc(100vw - 20px) !important;
+        max-height: calc(100vh - 20px) !important;
         border-radius: 14px !important;
+        resize: vertical !important;
       }
 
       .airia-readable-fix textarea,
       .airia-readable-fix [contenteditable="true"] {
-        min-height: 78px !important;
-        max-height: 160px !important;
+        min-height: 96px !important;
+        max-height: 165px !important;
       }
     }
 
@@ -863,35 +966,76 @@
               <li>Ask for a step-by-step plan if you want help from idea to deployment.</li>
             </ul>
           </div>
+          <div class="product-highlight-grid">
+            <div class="product-highlight-card product-highlight-card-main">
+              <div class="product-image-wrap">
+                <img
+                  src="https://raw.githubusercontent.com/arshad831/ddsapplicationchallenge/main/ChatGPT%20Image%20Jun%205%2C%202026%2C%2002_02_39%20PM.png"
+                  alt="AI App Builder Challenge Support Kit – June 2026"
+                  loading="lazy"
+                />
+              </div>
+              <div class="product-copy">
+                <span class="product-eyebrow">Free Day Zero completion bonus</span>
+                <h3>AI App Builder Challenge Support Kit – June 2026</h3>
+                <p>
+                  A practical support kit to help participants prepare ideas, plan features, structure prompts,
+                  and move confidently toward Day 1 and final submission.
+                </p>
+                <p class="product-bonus-note">
+                  Complete Day Zero before Day 1 starts and get complimentary access to this support kit.
+                </p>
+                <div class="product-actions">
+                  <a
+                    href="https://nas.com/artificialintelligence/courses/ai-app-builder-challenge-support-kit-june-2026"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary"
+                  >
+                    Open Support Kit
+                  </a>
+                  <a
+                    href="https://nas.com/artificialintelligence/challenges/building-ai-application-jun/home"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-secondary"
+                  >
+                    Complete Day Zero
+                  </a>
+                </div>
+              </div>
+            </div>
 
-          <div class="resource-box">
-            <p><strong>Mini support materials for getting started</strong></p>
-            <p>
-              These starter materials can help you understand the basics, checkpoints, and first steps.
-            </p>
-            <a
-              href="https://nas.io/artificialintelligence/digital-files/jkem"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-primary"
-            >
-              Open Getting Started Materials
-            </a>
+            <div class="product-highlight-card product-highlight-card-secondary">
+              <div class="product-image-wrap">
+                <img
+                  src="https://raw.githubusercontent.com/arshad831/ddsapplicationchallenge/main/nio_1748492699588_d7b2842e-a10d-42fa-a62c-4b4813d018db_GV_100.webp"
+                  alt="AI Builder Vault support material"
+                  loading="lazy"
+                />
+              </div>
+              <div class="product-copy">
+                <span class="product-eyebrow">Optional extra support</span>
+                <h3>AI Builder Vault</h3>
+                <p>
+                  Explore additional examples, guidance, and resources if you want more structured help while building your AI application.
+                </p>
+                <div class="product-actions">
+                  <a
+                    href="https://nas.io/artificialintelligence/digital-files/tqnq"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-secondary"
+                  >
+                    Explore AI Builder Vault
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="support-box">
-            <p><strong>Optional AI Builder Bot support material</strong></p>
-            <p>
-              Want extra guidance, examples, and structured support? You can explore the optional support material.
-            </p>
-            <a
-              href="https://nas.io/artificialintelligence/digital-files/tqnq"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-secondary"
-            >
-              Explore Optional Support Material
-            </a>
+          <div class="welcome-note-box">
+            <strong>Thank you for joining the challenge.</strong> Best of luck — start early, complete Day Zero, and use the assistant whenever you need help with ideas, prompts, tools, or deployment.
           </div>
 
           <div class="countdown-box">
@@ -1289,28 +1433,7 @@
     /* Countdown runs independently, so it keeps working even if the chatbot script has a temporary loading/session issue. */
     const DAY_ONE_TARGET = new Date("2026-06-20T09:00:00+04:00").getTime();
     const FINAL_SUBMISSION_TARGET = new Date("2026-06-28T23:45:00+04:00").getTime();
-
-    const STARTER_QUESTIONS = [
-      {
-        label: "Choose an idea",
-        message: "Help me choose a beginner-friendly AI application idea for the Building AI Application Challenge. Ask me a few questions and suggest 3 practical ideas."
-      },
-      {
-        label: "Build roadmap",
-        message: "Give me an 8-day roadmap to build and submit my AI application for this challenge. Include planning, prototype, testing, deployment, and final submission steps."
-      },
-      {
-        label: "Review my idea",
-        message: "Review my AI project idea and recommend the best no-code, low-code, or coding path. Also suggest tools and first steps."
-      }
-    ];
-
-    const AIRIA_STARTER_SUGGESTIONS = `<airiaMessageRadios buttonText="Try one starter question" sendButtonText="Ask">
-${JSON.stringify(STARTER_QUESTIONS, null, 2)}
-</airiaMessageRadios>`;
-    window.AIRIA_CHALLENGE_GREETING = `Welcome to the Building AI Application Challenge Assistant. Ask me about checkpoints, project ideas, no-code tools, prompts, prizes, or deployment.
-
-${AIRIA_STARTER_SUGGESTIONS}`;
+    const AIRIA_CHALLENGE_GREETING = "Welcome to the Building AI Application Challenge Assistant. Ask me about checkpoints, project ideas, no-code tools, prompts, prizes, or deployment.";
 
     function setText(id, value) {
       const element = document.getElementById(id);
@@ -1391,13 +1514,17 @@ ${AIRIA_STARTER_SUGGESTIONS}`;
           }
           [role="dialog"], [aria-modal="true"] {
             background: #ffffff !important;
-            width: min(960px, calc(100vw - 32px)) !important;
-            height: min(760px, calc(100vh - 32px)) !important;
+            width: clamp(380px, 54vw, 820px) !important;
+            height: clamp(520px, 72vh, 700px) !important;
+            min-width: 360px !important;
+            min-height: 480px !important;
             max-width: calc(100vw - 32px) !important;
             max-height: calc(100vh - 32px) !important;
+            resize: both !important;
+            overflow: auto !important;
           }
           textarea, [contenteditable="true"] {
-            min-height: 88px !important;
+            min-height: 108px !important;
             max-height: 190px !important;
             line-height: 1.5 !important;
             white-space: pre-wrap !important;
@@ -1414,14 +1541,17 @@ ${AIRIA_STARTER_SUGGESTIONS}`;
           }
           @media (max-width: 768px) {
             [role="dialog"], [aria-modal="true"] {
-              width: calc(100vw - 12px) !important;
-              height: calc(100vh - 12px) !important;
-              max-width: calc(100vw - 12px) !important;
-              max-height: calc(100vh - 12px) !important;
+              width: calc(100vw - 20px) !important;
+              height: min(74vh, 640px) !important;
+              min-width: 0 !important;
+              min-height: 430px !important;
+              max-width: calc(100vw - 20px) !important;
+              max-height: calc(100vh - 20px) !important;
+              resize: vertical !important;
             }
             textarea, [contenteditable="true"] {
-              min-height: 78px !important;
-              max-height: 160px !important;
+              min-height: 96px !important;
+              max-height: 165px !important;
             }
           }
         `;
@@ -1486,8 +1616,8 @@ ${AIRIA_STARTER_SUGGESTIONS}`;
 
       try {
         element.style.setProperty("height", "auto", "important");
-        const maxHeight = window.innerWidth <= 768 ? 160 : 190;
-        const nextHeight = Math.min(Math.max(element.scrollHeight, window.innerWidth <= 768 ? 78 : 88), maxHeight);
+        const maxHeight = window.innerWidth <= 768 ? 165 : 190;
+        const nextHeight = Math.min(Math.max(element.scrollHeight, window.innerWidth <= 768 ? 96 : 108), maxHeight);
         element.style.setProperty("height", `${nextHeight}px`, "important");
       } catch (error) {}
     }
@@ -1505,8 +1635,8 @@ ${AIRIA_STARTER_SUGGESTIONS}`;
       element.style.setProperty("caret-color", "#111827", "important");
 
       if (tag === "textarea" || isEditable) {
-        element.style.setProperty("min-height", window.innerWidth <= 768 ? "78px" : "88px", "important");
-        element.style.setProperty("max-height", window.innerWidth <= 768 ? "160px" : "190px", "important");
+        element.style.setProperty("min-height", window.innerWidth <= 768 ? "96px" : "108px", "important");
+        element.style.setProperty("max-height", window.innerWidth <= 768 ? "165px" : "190px", "important");
         element.style.setProperty("overflow-y", "auto", "important");
         element.style.setProperty("white-space", "pre-wrap", "important");
         element.style.setProperty("resize", "vertical", "important");
@@ -1532,12 +1662,34 @@ ${AIRIA_STARTER_SUGGESTIONS}`;
 
       if (!isDialog && !isFloatingPanel) return;
 
+      const mode = window.innerWidth <= 768 ? "mobile" : "desktop";
       widget.classList.add("airia-chat-expanded");
-      widget.style.setProperty("width", window.innerWidth <= 768 ? "calc(100vw - 12px)" : "min(960px, calc(100vw - 32px))", "important");
-      widget.style.setProperty("height", window.innerWidth <= 768 ? "calc(100vh - 12px)" : "min(760px, calc(100vh - 32px))", "important");
-      widget.style.setProperty("max-width", window.innerWidth <= 768 ? "calc(100vw - 12px)" : "calc(100vw - 32px)", "important");
-      widget.style.setProperty("max-height", window.innerWidth <= 768 ? "calc(100vh - 12px)" : "calc(100vh - 32px)", "important");
-      widget.style.setProperty("border-radius", window.innerWidth <= 768 ? "14px" : "18px", "important");
+
+      // Apply default sizing only once per viewport mode. This avoids repeatedly locking the window size,
+      // so users can still resize the chat panel on desktop.
+      if (widget.dataset.airiaLayoutMode === mode) return;
+
+      if (mode === "mobile") {
+        widget.style.setProperty("width", "calc(100vw - 20px)", "important");
+        widget.style.setProperty("height", "min(74vh, 640px)", "important");
+        widget.style.setProperty("min-width", "0", "important");
+        widget.style.setProperty("min-height", "430px", "important");
+        widget.style.setProperty("max-width", "calc(100vw - 20px)", "important");
+        widget.style.setProperty("max-height", "calc(100vh - 20px)", "important");
+        widget.style.setProperty("resize", "vertical", "important");
+      } else {
+        widget.style.setProperty("width", "clamp(380px, 54vw, 820px)", "important");
+        widget.style.setProperty("height", "clamp(520px, 72vh, 700px)", "important");
+        widget.style.setProperty("min-width", "360px", "important");
+        widget.style.setProperty("min-height", "480px", "important");
+        widget.style.setProperty("max-width", "calc(100vw - 32px)", "important");
+        widget.style.setProperty("max-height", "calc(100vh - 32px)", "important");
+        widget.style.setProperty("resize", "both", "important");
+      }
+
+      widget.style.setProperty("border-radius", mode === "mobile" ? "14px" : "18px", "important");
+      widget.style.setProperty("overflow", "auto", "important");
+      widget.dataset.airiaLayoutMode = mode;
     }
 
     function findBestChatInput() {
@@ -1757,7 +1909,7 @@ ${AIRIA_STARTER_SUGGESTIONS}`;
         pipelineId: "9a8479b4-9a8f-4ff3-9efa-ca6e92c4b622",
         apiKey: "ak-Mzg1NzM3MDM0M3wxNzc1MTIxMDMwMzU0fHRpLVJHVmpiMlJwYm1jZ1JHRjBZU0JUWTJsbGJtTmxJQzBnUTBWUExVOXdaVzRnVW1WbmFYTjBjbUYwYVc5dUxWQnliMlpsYzNOcGIyNWhiQT09fDF8MjkyODI0NzY2MyAg",
         apiUrl: "https://embed-api.airia.ai",
-        greeting: window.AIRIA_CHALLENGE_GREETING || "Welcome to the Building AI Application Challenge Assistant. Ask me about checkpoints, project ideas, no-code tools, prompts, prizes, or deployment.",
+        greeting: AIRIA_CHALLENGE_GREETING,
         imagePath: "https://raw.githubusercontent.com/arshad831/ddsapplicationchallenge/main/Screenshot%202026-04-02%20150809.png",
         imageSize: "large",
         imageBgColor: "#FFFFFF",
